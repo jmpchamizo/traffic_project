@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-stop_cascade = cv2.CascadeClassifier('../data/traffic_cascades/Speedlimit_24_15Stages.xml')
+stop_cascade = cv2.CascadeClassifier('cascade.xml')
 captura = cv2.VideoCapture(0)
 
 
