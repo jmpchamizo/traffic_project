@@ -6,7 +6,7 @@ from keras.preprocessing.image import ImageDataGenerator
 # Modelo para clasificar:
 # model = keras.models.load_model("../data/model/model_train.h5")
 # El diccionario con el código de las señales
-labels = pickle.load(open('../data/data8.pickle','rb'))["labels"]
+labels = pickle.load(open('data/data8.pickle','rb'))["labels"]
 # Nombre de la ventana.
 window_name = 'Detect traffic signs'
 datagen = ImageDataGenerator(featurewise_center=True, featurewise_std_normalization=True)
@@ -34,13 +34,13 @@ def capture_sign(image, x, y , w, h):
     if sign_arr.shape[0] > 0 and sign_arr.shape[1] > 0:
         sign_scale = np.array([cv2.resize(sign_arr[0], (32,32))])[:,:,:,0:1]
         datagen.fit(sign_scale)
-        model = keras.models.load_model("../data/model/model_train.h5")
+        model = keras.models.load_model("data/model/model_train.h5")
         return np.argmax(model.predict(sign_scale))
     return None
 
 
 def detect_sign(imag=[], cascade="stop_cascade.xml", ids_sign = [14], color_box=(0, 0, 255), color_text=(0, 0, 255), thickness=2):
-    URL = '../data/traffic_cascades/'
+    URL = 'data/traffic_cascades/'
     sign_cascade = cv2.CascadeClassifier(f'{URL}{cascade}')
     imag1 = imag.copy()
     rectangles = sign_cascade.detectMultiScale(imag1, 1.05, 3)

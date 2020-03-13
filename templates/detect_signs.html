@@ -11,7 +11,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){ 
+        $(document).ready(function(){
+            $('#filename').css('display', 'none');
             $("#btnDetect").click(function(){
                 $.ajax({
                     url: "http://localhost:5000/image/signs",
@@ -36,8 +37,8 @@
             <label for="circle"> Speed limit signs</label><br>
             <input type="checkbox" id="triangle" value="Triangle signs">
             <label for="triangle"> Triangle signs</label><br>
-            <label id="filename" style=”display:none”>{{ value }}</label>
-            <button type="button" class="btn btn-dark" id="btnDetect">Submint</button><br><br>
+            <label id="filename">{{ value }}</label>
+            <button type="button" class="btn btn-dark" id="btnDetect">Detect</button><br><br>
             <div id="image-result">
             </div>
         </div>
