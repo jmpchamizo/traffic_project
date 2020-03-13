@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Detect Signs</title>
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){ 
+            $("#btnDetect").click(function(){
+                $.ajax({
+                    url: "http://localhost:5000/image/signs",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({"stop": $('#stop').is(':checked'), "circle": $('#circle').is(':checked'), "triangle":$('#triangle').is(':checked'), "filename":$('#filename').text()})
+                }).done(function(data) {
+                    alert(data)
+                    $('#image-result').empty().append('<img src=../'+data+'>');
+                });
+            });
+        });
+    </script>
+    </head>
+<body>
+    <div class="row pt-2">
+        <div class="col-sm-4 p-3 my-3" id="rec_chats"></div>
+        <div class="col-sm-4" id="title">
+            <input type="checkbox" id="stop" value="Stop">
+            <label for="stop"> Stop sign</label><br>
+            <input type="checkbox" id="circle" value="Speed Limit">
+            <label for="circle"> Speed limit signs</label><br>
+            <input type="checkbox" id="triangle" value="Triangle signs">
+            <label for="triangle"> Triangle signs</label><br>
+            <label id="filename" style=”display:none”>{{ value }}</label>
+            <button type="button" class="btn btn-dark" id="btnDetect">Submint</button><br><br>
+            <div id="image-result">
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+</body>
+
+
