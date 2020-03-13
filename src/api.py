@@ -66,8 +66,8 @@ def upload_file():
 		return render_template('detect_signs.html', value=filename)
 
 
-app.run("0.0.0.0", 5000, debug=True)
-#app.run("0.0.0.0", os.getenv("PORT"), debug=True)
+#app.run("0.0.0.0", 5000, debug=True)
+app.run("0.0.0.0", os.getenv("PORT"), debug=True)
 
 
 

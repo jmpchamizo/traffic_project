@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import cv2, pickle, keras
 from keras.preprocessing.image import ImageDataGenerator
 
