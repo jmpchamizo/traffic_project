@@ -27,7 +27,7 @@
 
 ## Resultados
 
-<p>Adjunto capturas de las colecciones</p>
+<p>Adjunto capturas de fotos de prueba</p>
 <p>Stop</p>
 
 ![Stop](static/detect_1007_bn9_four_waystopjpg_1.29.00.jpeg)
